@@ -1,23 +1,16 @@
 class Solution {
 public:
     int minSteps(string s, string t) {
-        int a1[26]={};
-        int a2[26]={};
-        for(auto i:s)
+        unordered_map<char,int>mp;
+        for(int i=0;i<s.size();i++)
         {
-            a1[i-'a']++;
-        }
-        for(auto i:t)
-        {
-            a2[i-'a']++;
+            mp[s[i]]++;
+            mp[t[i]]--;
         }
         int c=0;
-        for(int i=0;i<26;i++)
+        for(auto i:mp)
         {
-            if((a1[i]-a2[i])>0)
-            {
-                c+=(abs(a1[i]-a2[i]));
-            }
+            if((i.second)>0) c+=(i.second);
         }
         return c;
     }
