@@ -1,21 +1,19 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int t) {
-        vector<int>vet;
-        int n=nums.size();
+    vector<int> twoSum(vector<int>& arr, int t) {
+        int n=arr.size();
         map<int,int>mp;
         for(int i=0;i<n;i++)
         {
-            if(mp.find(t-nums[i])!=mp.end())
+            if(mp.find(t-arr[i])!=mp.end())
             {
-                vet.push_back(mp[t-nums[i]]);
-                vet.push_back(i);
+                return {mp[t-arr[i]],i};
             }
             else
             {
-                mp[nums[i]]=i;
+                mp[arr[i]]=i;
             }
         }
-        return vet;
+        return {-1,-1};
     }
 };
