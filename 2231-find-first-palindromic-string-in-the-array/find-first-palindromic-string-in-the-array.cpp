@@ -19,7 +19,9 @@ public:
         int n=arr.size();
         for(int i=0;i<n;i++)
         {
-            if(rev(arr[i]))
+            string  b=arr[i];
+            reverse(b.begin(),b.end());
+            if(arr[i]==b)
             {
                 return arr[i];
             }
