@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int bits(int n)
+    int count(int n)
     {
         int c=0;
         while(n)
@@ -17,8 +17,7 @@ public:
         vector<int>vet;
         for(int i=0;i<=n;i++)
         {
-            int a=bits(i);
-            vet.push_back(a);
+            vet.push_back(count(i));
         }
         return vet;
     }
