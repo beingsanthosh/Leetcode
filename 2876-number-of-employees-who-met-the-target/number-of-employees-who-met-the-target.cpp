@@ -1,13 +1,10 @@
 class Solution {
 public:
-    int numberOfEmployeesWhoMetTarget(vector<int>& arr, int k) {
+    int numberOfEmployeesWhoMetTarget(vector<int>& h, int t) {
         int c=0;
-        for(int i=0;i<arr.size();i++)
+        for(int i=0;i<h.size();i++)
         {
-            if(arr[i]>=k)
-            {
-                c++;
-            }
+            if(h[i]>=t) c++;
         }
         return c;
     }
