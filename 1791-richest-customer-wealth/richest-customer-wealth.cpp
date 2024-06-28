@@ -1,17 +1,16 @@
 class Solution {
 public:
-    int maximumWealth(vector<vector<int>>& arr) {
-        int ans=0;
-        for(int i=0;i<arr.size();i++)
+    int maximumWealth(vector<vector<int>>& acc) {
+        int maxx=0,n=acc.size();
+        for(int i=0;i<n;i++)
         {
-            int k=0;
-            for(int j=0;j<arr[i].size();j++)
+            int s=0;
+            for(int j=0;j<acc[i].size();j++)
             {
-                k+=arr[i][j];
+                s+=acc[i][j];
             }
-            ans=max(ans,k);
+            maxx=max(s,maxx);
         }
-        return ans;
-        
+        return maxx;
     }
 };
