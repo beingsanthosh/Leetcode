@@ -2,17 +2,17 @@ class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
         int n=nums.size();
-        int ans=0;
-        map<int,int>mp;
+        int c=0;
         for(int i=0;i<n;i++)
         {
-            mp[nums[i]]++;
+            for(int j=i+1;j<n;j++)
+            {
+                if(nums[i]==nums[j])
+                {
+                    c++;
+                }
+            }
         }
-        for(auto i:mp)
-        {
-            int k=i.second;
-            ans+=(((k)*(k-1))/2);
-        }
-        return ans;
+        return c;
     }
 };
