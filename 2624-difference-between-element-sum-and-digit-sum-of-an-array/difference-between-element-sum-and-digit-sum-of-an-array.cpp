@@ -1,20 +1,22 @@
 class Solution {
-public:
-    int differenceOfSum(vector<int>& nums) {
+public:     
+    int suum(int n)
+    {
         int s=0;
-        int s1=0;
-        for(int i=0;i<nums.size();i++)
+        while(n)
         {
-            s+=nums[i];
-            while(nums[i]!=0)
-            {
-                s1+=(nums[i]%10);
-                nums[i]/=10;
-            }
-    
+            s+=(n%10);
+            n=n/10;
         }
-        return abs(s-s1);
-
-        
+        return s;
+    }
+    int differenceOfSum(vector<int>& arr) {
+        int s1=0,s2=0,n=arr.size();
+        for(int i=0;i<n;i++)
+        {
+            s1+=arr[i];
+            s2+=suum(arr[i]);
+        }
+        return s1-s2;
     }
 };
