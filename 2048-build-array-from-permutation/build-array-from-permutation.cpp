@@ -1,12 +1,13 @@
 class Solution {
 public:
-    vector<int> buildArray(vector<int>& arr) {
-        int n=arr.size();
-        vector<int>vet;
+    vector<int> buildArray(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>vet(n,0);
         for(int i=0;i<n;i++)
         {
-            vet.push_back(arr[arr[i]]);
+            vet[i]=nums[nums[i]];
         }
         return vet;
+        
     }
 };
