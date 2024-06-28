@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int bits(int n)
+    int count(int n,int k)
     {
         int c=0;
         while(n)
@@ -11,15 +11,15 @@ public:
             }
             n=n>>1;
         }
-        return c;
+        if(c==k) return 1;
+        return 0;
     }
     int sumIndicesWithKSetBits(vector<int>& nums, int k) {
         int s=0;
         int n=nums.size();
         for(int i=0;i<n;i++)
         {
-            int a=bits(i);
-            if(a==k)
+            if(count(i,k))
             {
                 s+=nums[i];
             }
