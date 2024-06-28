@@ -1,18 +1,19 @@
 class Solution {
 public:
-    vector<int> findWordsContaining(vector<string>& arr, char x) 
-    {
+    vector<int> findWordsContaining(vector<string>& w, char x) {
         vector<int>vet;
-        for(int i=0;i<arr.size();i++)
+        for(int i=0;i<w.size();i++)
         {
-            string a=arr[i];
-            auto k=find(a.begin(),a.end(),x);
-            if(k!=a.end())
+            string k=w[i];
+            for(int j=0;j<k.size();j++)
             {
-                vet.push_back(i);
+                if(k[j]==x)
+                {
+                    vet.push_back(i);
+                    break;
+                }
             }
         }
         return vet;
-        
     }
 };
