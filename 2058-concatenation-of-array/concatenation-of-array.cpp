@@ -1,12 +1,15 @@
 class Solution {
 public:
     vector<int> getConcatenation(vector<int>& nums) {
+        vector<int>vet;
         int n=nums.size();
-        vector<int>vet(n*2,0);
         for(int i=0;i<n;i++)
         {
-            vet[i]=nums[i];
-            vet[i+n]=nums[i];
+            vet.push_back(nums[i]);
+        }
+        for(int i=0;i<n;i++)
+        {
+            vet.push_back(nums[i]);
         }
         return vet;
     }
