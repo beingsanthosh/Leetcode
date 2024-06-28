@@ -1,14 +1,13 @@
 class Solution {
 public:
-    vector<int> decode(vector<int>& arr, int n) {
-        vector<int>vet;
-        vet.push_back(n);
-        int x=n;
-        for(int i=0;i<arr.size();i++)
+    vector<int> decode(vector<int>& en, int s) {
+        int n=en.size();
+        vector<int>arr(n+1,0);
+        arr[0]=s;
+        for(int i=0;i<n;i++)
         {
-            x=x^arr[i];
-            vet.push_back(x);
+            arr[i+1]=en[i]^arr[i];
         }
-        return vet;
+        return arr;
     }
 };
