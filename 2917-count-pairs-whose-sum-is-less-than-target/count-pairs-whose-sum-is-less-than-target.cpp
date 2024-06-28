@@ -1,22 +1,18 @@
 class Solution {
 public:
-    int countPairs(vector<int>& arr, int k) {
-        int n=arr.size();
-        sort(arr.begin(),arr.end());
-        int l=0,r=n-1,c=0;
-        while(l<r)
+    int countPairs(vector<int>& nums, int t) {
+        int c=0;
+        for(int i=0;i<nums.size();i++)
         {
-            if(arr[l]+arr[r]<k)
+            for(int j=i+1;j<nums.size();j++)
             {
-                c+=(r-l);
-                l+=1;
-            }
-            else
-            {
-                r-=1;
+                int k=nums[i]+nums[j];
+                if(k<t)
+                {
+                    c++;
+                }
             }
         }
         return c;
-
     }
 };
