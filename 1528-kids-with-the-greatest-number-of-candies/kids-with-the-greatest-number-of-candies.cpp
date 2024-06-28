@@ -1,16 +1,16 @@
 class Solution {
 public:
-    vector<bool> kidsWithCandies(vector<int>& arr, int k) {
+    vector<bool> kidsWithCandies(vector<int>&c, int t) {
         vector<bool>vet;
-        int n=arr.size();
-        int maxx=INT_MIN;
-        for(int i=0;i<n;i++)
+        int maxx=-1;
+        for(int i=0;i<c.size();i++)
         {
-            maxx=max(maxx,arr[i]);
+            maxx=max(c[i],maxx);
         }
-        for(int i=0;i<n;i++)
+        for(int i=0;i<c.size();i++)
         {
-            if(arr[i]+k>=maxx)
+            int k=c[i]+t;
+            if(k>=maxx)
             {
                 vet.push_back(true);
             }
@@ -20,6 +20,5 @@ public:
             }
         }
         return vet;
-
     }
 };
