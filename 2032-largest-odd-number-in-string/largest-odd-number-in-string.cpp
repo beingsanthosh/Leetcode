@@ -1,28 +1,21 @@
 class Solution {
 public:
-    string largestOddNumber(string s) {
-        int n=s.size(),ind=-1;
+    string largestOddNumber(string num) {
+        int n=num.size();
+        int ind;
         for(int i=n-1;i>=0;i--)
-        {
-            int a=s[i]-'0';
-            if(a%2!=0)
+{
+            if((num[i]-'0')%2!=0)
             {
                 ind=i;
                 break;
             }
         }
-        if(ind==-1)
+        string a;
+        for(int i=0;i<=ind;i++)
         {
-            return "";
+            a+=num[i];
         }
-        else
-        {
-            string k="";
-            for(int i=0;i<=ind;i++)
-            {
-                k+=s[i];
-            }
-            return k;
-        }
+        return a;
     }
 };
