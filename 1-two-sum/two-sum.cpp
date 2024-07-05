@@ -1,16 +1,16 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int t) {
-        int n=nums.size();
+    vector<int> twoSum(vector<int>& arr, int t) {
+        map<int,int>mp;
+        int n=arr.size();
         for(int i=0;i<n;i++)
         {
-            for(int j=i+1;j<n;j++)
+            int r=t-arr[i];
+            if(mp.find(r)!=mp.end())
             {
-                if(nums[i]+nums[j]==t)
-                {
-                    return {i,j};
-                }
+                return {i,mp[r]};
             }
+            mp[arr[i]]=i;
         }
         return {};
     }
