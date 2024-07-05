@@ -1,16 +1,16 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& arr) {
+    int maxProfit(vector<int>&arr) {
         int n=arr.size();
+        int minn=arr[0];
         int profit=0;
-        int mini=arr[0];
-        int cost=0;
         for(int i=1;i<n;i++)
         {
-            cost=arr[i]-mini;
+            int cost=arr[i]-minn;
             profit=max(profit,cost);
-            mini=min(mini,arr[i]);
+            minn=min(arr[i],minn);
         }
         return profit;
+        
     }
 };
