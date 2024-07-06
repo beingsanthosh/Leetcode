@@ -2,14 +2,27 @@ class Solution {
 public:
     int searchInsert(vector<int>& arr, int t) {
         int n=arr.size();
-        for(int i=0;i<n;i++)
+        int l=0,r=n-1;
+        if(t>arr[n-1])
         {
-            if(arr[i]>=t)
+            return n;
+        }
+        while(l<=r)
+        {
+            int m=(l+r)/2;
+            if(arr[m]==t)
             {
-                return i;
+                return m;
+            }
+            else if(t<arr[m])
+            {
+                r=m-1;
+            }
+            else
+            {
+                l=m+1;
             }
         }
-        return n;
-
+        return l;
     }
 };
