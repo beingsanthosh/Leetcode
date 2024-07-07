@@ -1,7 +1,7 @@
 class Solution {
 public:
-    bool lemonadeChange(vector<int>& arr) {
-        int f=0,ten=0,tw=0;
+    bool lemonadeChange(vector<int>&arr) {
+        int f=0,ten=0,tt=0;
         int n=arr.size();
         for(int i=0;i<n;i++)
         {
@@ -13,7 +13,7 @@ public:
             {
                 if(f)
                 {
-                    f-=1;
+                    f--;
                     ten++;
                 }
                 else
@@ -27,18 +27,19 @@ public:
                 {
                     f-=1;
                     ten-=1;
+                    tt++;
                 }
                 else if(f>=3)
                 {
-                    f-=3;
-                }
+                   f-=3;
+                }  
                 else
                 {
                     return false;
                 }
             }
-
         }
         return true;
+
     }
 };
