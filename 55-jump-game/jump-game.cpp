@@ -2,21 +2,19 @@ class Solution {
 public:
     bool canJump(vector<int>& arr) {
         int n=arr.size();
-        if(n<=1)
+        if(n==1 and arr[0]==0)
         {
-            return true;
+        return true;
         }
         int maxx=0;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++)
+        {
             if(i>maxx)
-            { 
+            {
                 return false;
             }
-            else
-            {
-                maxx=max(maxx,i+arr[i]);
-            }
-        }
-        return true;
+            maxx=max(maxx,i+arr[i]);
+        }   
+        return maxx;     
     }
 };
