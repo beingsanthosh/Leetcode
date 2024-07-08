@@ -1,24 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>&arr) {
-        vector<vector<int>>vet;
-        int n=arr.size();
-        int s=pow(2,n);
-        for(int i=0;i<s;i++)
+    void fun(int i,vector<int>&ds,vector<int>nums,int n,vector<vector<int>>&ans)
+    {
+        if(i==n)
         {
-            vector<int>v;
-            for(int j=0;j<n;j++)
-            {
-                if((i&(1<<j)))
-                {
-                    v.push_back(arr[j]);
-                }
-            }
-            vet.push_back(v);
-            v.clear();
+            ans.push_back(ds);
+            return;
         }
-        return vet;
+        ds.push_back(nums[i]);
+        fun(i+1,ds,nums,n,ans);
+        ds.pop_back();
+        fun(i+1,ds,nums,n,ans);
 
-        
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>ds;
+        vector<vector<int>>ans;
+        fun(0,ds,nums,n,ans);
+        return ans;
+
+
     }
 };
