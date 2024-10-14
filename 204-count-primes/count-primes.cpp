@@ -1,24 +1,23 @@
 class Solution {
 public:
     int countPrimes(int n) {
-        if(n==0) return 0;
-        vector<int>vet(n+1,1);
-        vet[0]=0;
-        vet[1]=0;
+        vector<bool>vet(n+1,true);
+        vet[0]=false;
+        vet[1]=false;
         for(int i=2;i*i<=n;i++)
         {
-            if(vet[i]==1)
+            if(vet[i]==true)
             {
                 for(int j=i*i;j<=n;j+=i)
                 {
-                    vet[j]=0;
+                    vet[j]=false;
                 }
             }
         }
         int c=0;
-        for(int i=1;i<n;i++)
+        for(int i=0;i<n;i++)
         {
-            if(vet[i]==1)
+            if(vet[i]==true)
             {
                 c++;
             }
