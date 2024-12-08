@@ -1,26 +1,40 @@
 class Solution {
 public:
-    int romanToInt(string s) {
-        unordered_map<char, int> m;
-        
-        m['I'] = 1;
-        m['V'] = 5;
-        m['X'] = 10;
-        m['L'] = 50;
-        m['C'] = 100;
-        m['D'] = 500;
-        m['M'] = 1000;
-        
-        int ans = 0;
-        
-        for(int i = 0; i < s.length(); i++){
-            if(m[s[i]] < m[s[i+1]]){
-                ans -= m[s[i]];
+    int romanToInt(string arr) {
+        map<char,int>mp;
+        int n=arr.size();
+
+        mp['I']=1;
+         mp['V']=5;
+          mp['X']=10;
+           mp['L']=50;
+            mp['C']=100; 
+            mp['D']=500;
+             mp['M']=1000;
+            if(n==1)
+            {
+                return mp[arr[0]];
             }
-            else{
-                ans += m[s[i]];
+            int s=0,i=0;
+        while(i<n-1)
+        {
+            if(mp[arr[i]]<mp[arr[i+1]])
+            {
+                s+=(mp[arr[i+1]]-mp[arr[i]]);
+                i+=2;
             }
+            else
+        {
+            s+=mp[arr[i]];
+            i++;
         }
-        return ans;
+        }
+        if(mp[arr[n-1]]<=mp[arr[n-2]])
+        {
+            s+=mp[arr[n-1]];
+        }
+        return s;
+        
+
     }
 };
