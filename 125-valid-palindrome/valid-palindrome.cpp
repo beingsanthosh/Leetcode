@@ -1,30 +1,18 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        std::string t;
-        for(const auto& a:s)
+        string a="";
+        int n=s.size();
+        for(int i=0;i<n;i++)
         {
-            if(a>='A' && a<='Z')
+            if(isalnum(s[i]))
             {
-                t.push_back(a-'A' + 'a');
-            }
-            else if(a>='a' && a<='z')
-            {
-                t.push_back(a);
-            }
-            else if(a>='0' && a<='9')
-            {
-                t.push_back(a);
+                a+=tolower(s[i]);
             }
         }
-        int len = t.size();
-        for(int i=0; i<len/2; ++i)
-        {
-            if(t[i] != t[len-i-1])
-            {
-                return false;
-            }
-        }
-        return true;
+        string b=a;
+        reverse(b.begin(),b.end());
+        return a==b;
+        
     }
 };
