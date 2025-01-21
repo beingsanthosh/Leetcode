@@ -1,19 +1,23 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        int len=s.size();
-        if(len!=t.size()) return false;
-        vector<int>a(200,0);
-        vector<int>b(200,0);
-        for(int i=0;i<len;i++)
-        {
-            if(a[s[i]]!=b[t[i]])
-            {
+        unordered_map<char, int> charIndexS;
+        unordered_map<char, int> charIndexT;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (charIndexS.find(s[i]) == charIndexS.end()) {
+                charIndexS[s[i]] = i;
+            }
+
+            if (charIndexT.find(t[i]) == charIndexT.end()) {
+                charIndexT[t[i]] = i;
+            }
+
+            if (charIndexS[s[i]] != charIndexT[t[i]]) {
                 return false;
             }
-            a[s[i]]=i+1;
-            b[t[i]]=i+1;
         }
-        return true;
+
+        return true;        
     }
 };
