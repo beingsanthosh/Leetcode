@@ -1,35 +1,29 @@
 class Solution {
 public:
-    int search(vector<int>vet,int t)
-    {
-        int n=vet.size();
-        int l=0,r=n-1;
-        while(l<=r)
+    bool searchMatrix(vector<vector<int>>& mat, int t) {
+        int n=mat.size();
+        int mm=mat[0].size();
+        for(int i=0;i<n;i++)
         {
-            int m=(l+r)/2;
-            if(vet[m]==t)
+            int l=0,r=mm-1;
+            while(l<=r)
             {
-                return 1;
-            }
-            else if(vet[m]<t)
-            {
-                l=m+1;
-            }
-            else
-            {
-                r=m-1;
-            }
-        }
-        return 0;
-    }
-    bool searchMatrix(vector<vector<int>>& m, int t) {
-        for(int i=0;i<m.size();i++)
-        {
-            if(search(m[i],t))
-            {
-                return true;
+                int m=(l+r)/2;
+                if(mat[i][m]==t)
+                {
+                    return true;
+                }
+                else if(mat[i][m]>t)
+                {
+                    r=m-1;
+                }
+                else
+                {
+                    l=m+1;
+                }
             }
         }
         return false;
+        
     }
 };
