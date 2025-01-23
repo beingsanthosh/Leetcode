@@ -1,25 +1,24 @@
 class Solution {
 public:
-    int search(vector<int>& arr, int t) {
-        int n=arr.size();
+    int search(vector<int>& nums, int t) {
+        int n=nums.size();
         int l=0,r=n-1;
         while(l<=r)
         {
             int m=(l+r)/2;
-            if(arr[m]==t)
+            if(nums[m]==t)
             {
                 return m;
             }
-            else if(t>arr[m])
-            {
-                l=m+1;
-            }
-            else
+            else if(nums[m]>t)
             {
                 r=m-1;
             }
+            else
+            {
+                l=m+1;
+            }
         }
         return -1;
-        
     }
 };
