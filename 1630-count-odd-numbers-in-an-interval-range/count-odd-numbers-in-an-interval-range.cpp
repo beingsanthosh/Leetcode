@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int countOdds(int low, int high) {
-        return (high-low+1)/2+(high%2&&high%2==low%2);
+    int countOdds(int l, int h) {
+        return ((h+1)/2)-(l/2);
     }
 };
